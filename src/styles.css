@@ -237,9 +237,12 @@ main:not(.is-visible) { display: none; }
 .ganesha-mark { mix-blend-mode:multiply; object-fit:contain; }
 
 /* A modest gold Ganesha blessing sits above the first inside-page greeting. */
-.ganesha-reveal { position:relative; height:auto; margin:0 auto 38px; line-height:0; }
-.ganesha-reveal:after { position:absolute; inset:0; z-index:2; background:linear-gradient(112deg,transparent 34%,#fff8d5 47%,#fff 50%,#e8c778 54%,transparent 68%); background-size:240% 100%; content:''; pointer-events:none; -webkit-mask:url('/images/ganesha-icon.png') center/contain no-repeat; mask:url('/images/ganesha-icon.png') center/contain no-repeat; animation:ganesha-shine 4.8s ease-in-out infinite; }
+.ganesha-reveal { position:relative; height:auto; margin:0 auto 38px; line-height:0; isolation:isolate; }
+.ganesha-reveal:before,.ganesha-reveal:after { position:absolute; inset:0; content:''; pointer-events:none; -webkit-mask-image:url('/images/ganesha-icon.png'); -webkit-mask-position:center; -webkit-mask-size:contain; -webkit-mask-repeat:no-repeat; mask-image:url('/images/ganesha-icon.png'); mask-position:center; mask-size:contain; mask-repeat:no-repeat; }
+.ganesha-reveal:before { z-index:1; background:linear-gradient(132deg,#a87932 8%,#e7c36f 38%,#fff0b2 50%,#c99b4d 68%,#a87932 92%); animation:ganesha-glow 3.8s ease-in-out infinite; }
+.ganesha-reveal:after { z-index:2; background:linear-gradient(112deg,transparent 34%,#fff8d5 47%,#fff 50%,#e8c778 54%,transparent 68%); background-size:240% 100%; animation:ganesha-shine 4.8s ease-in-out infinite; }
 .ganesha-mark { display:block; margin:auto; filter:brightness(0) saturate(100%) invert(70%) sepia(30%) saturate(623%) hue-rotate(3deg) brightness(91%) contrast(88%) drop-shadow(0 2px 5px #b99a6250); animation:ganesha-glow 3.8s ease-in-out infinite; }
+@supports (-webkit-mask-image:url('/images/ganesha-icon.png')) { .ganesha-mark { opacity:0; } }
 @keyframes ganesha-shine { 0%,34% { background-position:140% 50%; opacity:0; } 48% { opacity:.95; } 70%,100% { background-position:-100% 50%; opacity:0; } }
 @keyframes ganesha-glow { 50% { filter:brightness(0) saturate(100%) invert(75%) sepia(44%) saturate(660%) hue-rotate(4deg) brightness(100%) contrast(91%) drop-shadow(0 3px 8px #d6b7799c); } }
 .hero-frame.page-sheet { justify-content:center; padding-top:clamp(36px,5vw,64px); padding-bottom:clamp(36px,5vw,64px); }
