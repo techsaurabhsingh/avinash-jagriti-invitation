@@ -1,0 +1,27 @@
+{
+  "name": "avinash-jagriti-engagement-invitation",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "video:preview": "remotion studio video/index.jsx",
+    "video:preview-export": "remotion render video/index.jsx EngagementInvitation output/preview-10s.mp4 --codec h264 --audio-codec aac --frames=0-299",
+    "video:render": "remotion render video/index.jsx EngagementInvitation output/avinash-jagriti-engagement.mp4 --codec h264 --audio-codec aac"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.361",
+    "@remotion/media": "^4.0.361",
+    "@remotion/player": "^4.0.361",
+    "@fontsource/cormorant-garamond": "^5.2.7",
+    "@fontsource/lato": "^5.2.7",
+    "@fontsource/playfair-display": "^5.2.7",
+    "framer-motion": "12.43.0",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.361"
+  },
+  "devDependencies": { "@vitejs/plugin-react": "^4.3.4", "vite": "^6.0.5" }
+}
