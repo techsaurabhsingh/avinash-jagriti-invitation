@@ -1,7 +1,7 @@
 :root {
   --blush: #f8dde3; --dusty: #d9a6b1; --soft-pink: #f4c8d2; --ivory: #fff8ee;
   --pearl: #fffefa; --gold: #d6b779; --antique: #b99a62; --brown: #694a50;
-  --couple-name-size: clamp(1.45rem,4.7vw,2.12rem); --book-page-min-height: max(calc(100svh - 60px),960px); --book-stage-min-height:calc(var(--book-page-min-height) + 60px); --book-page-width:min(calc(100vw - 32px),660px);
+  --couple-name-size: clamp(1.45rem,4.7vw,2.12rem); --book-page-width:min(calc(100vw - 32px),660px);
   --rose-bg: #fceef0; --serif: 'Cormorant Garamond', Georgia, serif;
   --display: 'Playfair Display', Georgia, serif; --script: 'Great Vibes', cursive;
   --sans: 'Lato', Arial, sans-serif;
@@ -41,7 +41,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--antique); outli
 .insert-card { position: absolute; top: 11%; left: 10%; z-index: 1; display: flex; width: 80%; height: 88%; justify-content: center; padding: 15px; border: 1px solid var(--gold); background: linear-gradient(115deg, #fffefa, var(--ivory) 55%, #fffdf7); box-shadow: 0 5px 20px #694a501c, inset 0 0 0 5px #fff8ee; transform-style: preserve-3d; }
 .insert-border { display: flex; width: 100%; flex-direction: column; align-items: center; justify-content: center; border: 1px solid #d6b77988; outline: 1px solid #d6b7793b; outline-offset: 3px; }
 .insert-wreath { display:flex; height:43px; align-items:center; justify-content:center; gap:5px; margin:0 0 3px; color:#bd9473; font-size:.66rem; }
-.insert-logo { width:37px; height:36px; object-fit:contain; mix-blend-mode:multiply; }
+.insert-logo { width:43px; height:42px; object-fit:contain; mix-blend-mode:multiply; }
 .insert-border small { margin-top: 5px; color: #8b6c5e; font: 500 .37rem var(--sans); letter-spacing: .2em; }
 .insert-border b { margin: 7px 0 5px; color: var(--brown); font: 600 clamp(.8rem, 3.2vw, 1.05rem)/1.45 var(--display); letter-spacing: .08em; }
 .insert-border b em { display: block; color: var(--antique); font: italic .85rem var(--serif); line-height: 1.05; }
@@ -104,7 +104,7 @@ main:not(.is-visible) { display: none; }
 .monogram-wreath { position: relative; width: 88px; height: 74px; margin: 0 auto 12px; gap: 2px; border-bottom: 1px solid #d6b7799c; font-size: 1.25rem; }
 .monogram-wreath:before { position: absolute; right: 12px; bottom: 5px; left: 12px; height: 48px; border: 1px solid #d6b7799c; border-bottom: 0; border-radius: 60px 60px 0 0; content: ''; }
 .wreath-left,.wreath-right { position: absolute; bottom: 0; color: #c09376; font: 1.35rem var(--serif); }.wreath-left { left: -3px; transform: rotate(-18deg); }.wreath-right { right: -3px; transform: scaleX(-1) rotate(-18deg); }
-.aj-monogram-image { position:relative; z-index:1; display:block; width:38px; height:37px; object-fit:contain; mix-blend-mode:multiply; }
+.aj-monogram-image { position:relative; z-index:1; display:block; width:46px; height:45px; object-fit:contain; mix-blend-mode:multiply; }
 
 /* Page 2: couple introduction with its own open double-line frame. */
 .hero { display: grid; min-height: min(820px,calc(100svh - 70px)); place-items: center; padding: 46px 30px 72px; background: radial-gradient(ellipse at center,#fffefa 0%,#fdf5f3 48%,#f8e5e8 100%); text-align: center; }
@@ -127,7 +127,7 @@ main:not(.is-visible) { display: none; }
 .premium-card-wrap { width: min(100%,660px); }
 .premium-card { position: relative; padding: 9px; border: 1px solid var(--antique); background: linear-gradient(145deg,#fffefa,#fff8ee 68%,#fffdf7); box-shadow: 0 24px 64px #694a5018, inset 0 0 30px #d6b77912; }
 .premium-card:before { position: absolute; inset: 5px; border: 1px solid #d6b77984; content: ''; pointer-events: none; }
-.premium-card-inner { position: relative; display: flex; min-height: 650px; flex-direction: column; align-items: center; padding: 38px clamp(18px,5vw,54px) 35px; border: 1px solid #d6b77978; outline: 1px solid #d6b7793d; outline-offset: 3px; text-align: center; }
+.premium-card-inner { position: relative; display: flex; min-height: 0; flex-direction: column; align-items: center; padding: 38px clamp(18px,5vw,54px) 35px; border: 1px solid #d6b77978; outline: 1px solid #d6b7793d; outline-offset: 3px; text-align: center; }
 .premium-card-inner:before,.premium-card-inner:after { position: absolute; color: #d5a3a6; content: '❀'; font-size: 2rem; opacity: .68; }.premium-card-inner:before { top: 14px; left: 13px; }.premium-card-inner:after { right: 13px; bottom: 14px; transform: rotate(180deg); }
 .premium-card .monogram-wreath { margin-bottom: 7px; }.card-family { margin-top: 3px; font-size: .57rem; }
 .card-decorative-message { max-width: 440px; margin: 15px 0 0; color: #765e5d; font: italic 1rem/1.5 var(--serif); }
@@ -193,7 +193,7 @@ main:not(.is-visible) { display: none; }
 .photo-placeholder { position: relative; display: flex; width: min(68vw,390px); aspect-ratio: 4/5; flex-direction: column; align-items: center; justify-content: center; gap: 10px; overflow: hidden; border: 1px solid var(--gold); outline: 1px solid #d6b77980; outline-offset: 6px; background: radial-gradient(ellipse at 50% 38%,#fffefa,#f4dfe2 83%); box-shadow: 0 15px 40px #694a5012, inset 0 0 0 7px #fffefa; color: #745d5c; cursor: zoom-in; }
 .photo-placeholder:before,.photo-placeholder:after { position: absolute; color: #c58e95a3; content: '❀'; font-size: 2.65rem; }.photo-placeholder:before { top: 16px; left: 19px; }.photo-placeholder:after { right: 19px; bottom: 16px; transform: rotate(180deg); }
 .photo-mark { color: #956f6b; font: 600 2.9rem var(--display); letter-spacing: .02em; }.photo-mark i { color: var(--antique); font: italic 1.4rem var(--serif); }.photo-placeholder>span:nth-child(2) { font: italic 1.05rem var(--serif); }.photo-placeholder small { color: #826d68; font: 400 .63rem var(--sans); }
-.gallery-image { position: absolute; inset: 7px; z-index: 1; width: calc(100% - 14px); height: calc(100% - 14px); object-fit: cover; opacity: 0; transition: opacity .5s; }.gallery-image.visible { opacity: 1; }.photo-placeholder:has(.gallery-image.visible):before,.photo-placeholder:has(.gallery-image.visible):after { z-index: 2; color: #fff4e9d9; text-shadow: 0 1px 6px #694a5055; }
+.gallery-image { position: absolute; inset: 7px; z-index: 1; width: calc(100% - 14px); height: calc(100% - 14px); object-fit: cover; object-position: center; opacity: 0; transition: opacity .5s; }.gallery-image.visible { opacity: 1; }.full-photo .gallery-image { object-fit: contain; background:#fbf5ec; }.photo-placeholder:has(.gallery-image.visible):before,.photo-placeholder:has(.gallery-image.visible):after { z-index: 2; color: #fff4e9d9; text-shadow: 0 1px 6px #694a5055; }
 .expand { position: absolute; top: 17px; right: 17px; z-index: 3; display: grid; width: 32px; height: 32px; place-items: center; border-radius: 50%; background: #fffefaed; color: #725b56; }
 .gallery-caption { margin: 22px auto; color: #795f60; font: italic 1.05rem var(--serif); }.gallery-caption span { margin-left: 9px; color: #a28a7f; font: 600 .62rem var(--sans); }
 .lightbox { position: fixed; inset: 0; z-index: 30; display: grid; place-items: center; padding: 24px; background: #4d3536ed; }.full-photo { width: min(78vw,500px); }.lightbox-close { position: absolute; top: 20px; right: 20px; z-index: 4; display: grid; width: 44px; height: 44px; place-items: center; border: 1px solid #fff8ee99; border-radius: 50%; background: transparent; color: #fff8ee; cursor: pointer; }
@@ -209,21 +209,18 @@ main:not(.is-visible) { display: none; }
 .share-button,.copy-button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 9px; padding: 11px 16px; border: 1px solid var(--gold); background: #fffefa; color: #725757; cursor: pointer; font-size: .72rem; letter-spacing: .04em; }.share-button { border-color: #ad7d76; background: #ad7d76; color: #fffefa; }.share-button:hover { background: #916964; }.copy-button:hover { background: #fae8eb; }
 .closing-frame footer { position: relative; padding-top: 13px; border-top: 1px solid #d6b77961; color: #826a61; font-size: .52rem; letter-spacing: .2em; }
 
-/* A matching portrait keepsake sheet frames each page, as on the invitation reference. */
-.section-shell.page-couple,.section-shell.page-invitation,.section-shell.page-countdown,
-.section-shell.page-venue,.section-shell.page-dress-code,.section-shell.page-gallery,
-.section-shell.page-thanks { min-height:var(--book-stage-min-height); padding:30px 16px; display:grid; place-items:center; }
-.page-sheet { position:relative; display:flex; width:var(--book-page-width); height:var(--book-page-min-height); min-height:var(--book-page-min-height); max-width:660px; flex-direction:column; align-items:center; justify-content:center; margin:0 auto; padding:clamp(36px,5vw,64px) clamp(20px,4vw,48px); border:1px solid #b99a62b8; border-radius:0; outline:1px solid #d9a6b17a; outline-offset:5px; background:linear-gradient(145deg,#fffefa,#fff8ee 68%,#fffdf7); box-shadow:0 20px 60px #694a5012,inset 0 0 0 5px #fff8ee; }
+/* Each keepsake page shares one width and grows to fit its own content. */
+.page-sheet { position:relative; display:flex; width:var(--book-page-width); height:auto; min-height:0; max-width:660px; flex-direction:column; align-items:center; justify-content:center; margin:0 auto; padding:clamp(36px,5vw,64px) clamp(20px,4vw,48px); border:1px solid #b99a62b8; border-radius:0; outline:1px solid #d9a6b17a; outline-offset:5px; background:linear-gradient(145deg,#fffefa,#fff8ee 68%,#fffdf7); box-shadow:0 20px 60px #694a5012,inset 0 0 0 5px #fff8ee; }
 .page-sheet:not(.premium-card):before { position:absolute; inset:8px; border:1px solid #d6b77970; border-radius:0; content:''; pointer-events:none; }
 .page-sheet.frame-rounded { border-radius:0; }
 .page-sheet.frame-rounded:before { border-radius:0; }
 .page-sheet .frame-corner { color:#ad8768; }
 .section-shell.page-couple,.section-shell.page-invitation,.section-shell.page-countdown,
 .section-shell.page-venue,.section-shell.page-dress-code,.section-shell.page-gallery,
-.section-shell.page-thanks { min-height:var(--book-stage-min-height); padding:30px 16px; display:grid; place-items:center; }
+.section-shell.page-thanks { min-height:0; padding:56px 16px; display:grid; place-items:center; }
 .hero-frame { width:var(--book-page-width); max-width:660px; }
 .premium-card.page-sheet { display:flex; align-items:stretch; padding:9px; }
-.premium-card.page-sheet .premium-card-inner { width:100%; height:100%; min-height:100%; }
+.premium-card.page-sheet .premium-card-inner { width:100%; height:auto; min-height:0; }
 .count-frame.page-sheet { width:var(--book-page-width); max-width:660px; }
 .dress-code-frame.page-sheet { width:var(--book-page-width); max-width:660px; }
 .venue-sheet.page-sheet,.gallery-sheet.page-sheet { gap:18px; }
@@ -240,13 +237,16 @@ main:not(.is-visible) { display: none; }
 .ganesha-mark { mix-blend-mode:multiply; object-fit:contain; }
 
 /* A modest gold Ganesha blessing sits above the first inside-page greeting. */
-.ganesha-reveal { height:auto; margin:0 auto 38px; line-height:0; }
-.ganesha-mark { display:block; margin:auto; color:#ad8757; filter:drop-shadow(0 2px 4px #b99a622c); }
+.ganesha-reveal { position:relative; height:auto; margin:0 auto 38px; line-height:0; }
+.ganesha-reveal:after { position:absolute; inset:0; z-index:2; background:linear-gradient(112deg,transparent 34%,#fff8d5 47%,#fff 50%,#e8c778 54%,transparent 68%); background-size:240% 100%; content:''; pointer-events:none; -webkit-mask:url('/images/ganesha-icon.png') center/contain no-repeat; mask:url('/images/ganesha-icon.png') center/contain no-repeat; animation:ganesha-shine 4.8s ease-in-out infinite; }
+.ganesha-mark { display:block; margin:auto; filter:brightness(0) saturate(100%) invert(70%) sepia(30%) saturate(623%) hue-rotate(3deg) brightness(91%) contrast(88%) drop-shadow(0 2px 5px #b99a6250); animation:ganesha-glow 3.8s ease-in-out infinite; }
+@keyframes ganesha-shine { 0%,34% { background-position:140% 50%; opacity:0; } 48% { opacity:.95; } 70%,100% { background-position:-100% 50%; opacity:0; } }
+@keyframes ganesha-glow { 50% { filter:brightness(0) saturate(100%) invert(75%) sepia(44%) saturate(660%) hue-rotate(4deg) brightness(100%) contrast(91%) drop-shadow(0 3px 8px #d6b7799c); } }
 .hero-frame.page-sheet { justify-content:center; padding-top:clamp(36px,5vw,64px); padding-bottom:clamp(36px,5vw,64px); }
 
 @media (min-width: 800px) {
   .hero { min-height: 825px; }.hero-frame { padding-top: 70px; padding-bottom: 62px; }
-  .premium-card-inner { min-height: 740px; padding-top: 48px; }
+  .premium-card-inner { padding-top: 48px; }
   .countdown-section { padding-top: 122px; padding-bottom: 130px; }
   .venue-section,.moments-section { padding-top: 130px; padding-bottom: 145px; }
   .closing { padding-top: 120px; }

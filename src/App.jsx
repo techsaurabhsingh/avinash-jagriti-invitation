@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { AnimatePresence, MotionConfig, motion, useReducedMotion } from 'framer-motion';
 import { ArrowDown, ArrowUpRight, CalendarDays, Check, Clock3, Copy, Heart, MapPin, Share2 } from 'lucide-react';
 import Envelope from './components/Envelope.jsx';
@@ -23,6 +23,7 @@ function Reveal({ children, className = '', delay = 0, y = 22, as: Tag = motion.
 function App() {
   const [opened, setOpened] = useState(false);
   const [copied, setCopied] = useState(false);
+  const startMusic = useRef(() => {});
   const url = window.location.href;
   const share = async () => {
     const text = shareMessage + url;
@@ -38,10 +39,10 @@ function App() {
   };
 
   return <MotionConfig reducedMotion="user"><>
-    <AnimatePresence>{!opened && <Envelope onOpen={() => setOpened(true)} onSkip={() => setOpened(true)}/>}</AnimatePresence>
+    <MusicPlayer onReady={play => { startMusic.current = play; }}/>
+    <AnimatePresence>{!opened && <Envelope onOpen={() => setOpened(true)} onSkip={() => setOpened(true)} onStartMusic={() => startMusic.current()}/>}</AnimatePresence>
     <motion.main className={opened ? 'is-visible' : ''} aria-hidden={!opened} initial={{ opacity: 0 }} animate={{ opacity: opened ? 1 : 0 }} transition={{ duration: .8 }}>
       <header className="topbar"><a className="brand" href="#top" aria-label="Dr. Avinash and Dr. Jagriti home"><img src="/images/aj-monogram.png" alt="Avinash and Jagriti gold monogram"/></a><nav aria-label="Invitation sections"><a href="#couple">The Couple</a><a href="#invitation">Invitation</a><a href="#countdown">Countdown</a><a href="#venue">Venue</a><a href="#dress-code">Dress Code</a><a href="#moments">Moments</a></nav></header>
-      <MusicPlayer/>
 
       <section className="hero section-shell page-couple" id="top">
         <Botanical className="hero-flower flower-left"/><Botanical className="hero-flower flower-right" flip/>

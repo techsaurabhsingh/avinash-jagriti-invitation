@@ -5,7 +5,7 @@ import Botanical from './Botanical.jsx';
 const petals = Array.from({ length: 13 }, (_, i) => ({ id: i, left: `${(i * 31 + 8) % 100}%`, delay: `${i * -0.77}s`, duration: `${8 + i % 5}s` }));
 const goldDust = Array.from({ length: 9 }, (_, i) => ({ id: i, x: `${(i - 4) * 17}px`, y: `${-34 - (i % 4) * 8}px`, delay: i * 0.035 }));
 
-export default function Envelope({ onOpen, onSkip }) {
+export default function Envelope({ onOpen, onSkip, onStartMusic }) {
   const [phase, setPhase] = useState('idle');
   const reduced = useReducedMotion();
   const timers = useRef([]);
@@ -13,6 +13,7 @@ export default function Envelope({ onOpen, onSkip }) {
 
   const open = () => {
     if (phase !== 'idle') return;
+    onStartMusic?.();
     setPhase('breaking');
     try {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -55,7 +56,7 @@ export default function Envelope({ onOpen, onSkip }) {
       </motion.button>
     </div>
     <motion.button className="tap-open" onClick={open} animate={phase === 'idle' ? { opacity: [1, .58, 1] } : { opacity: 1 }} transition={{ duration: 2, repeat: phase === 'idle' && !reduced ? Infinity : 0 }}>{phase === 'idle' ? 'TAP TO OPEN' : 'OPENING YOUR INVITATION'}</motion.button>
-    {phase === 'idle' && <button className="skip" onClick={onSkip}>Skip Animation</button>}
+    {phase === 'idle' && <button className="skip" onClick={() => { onStartMusic?.(); onSkip(); }}>Skip Animation</button>}
     <div className="opening-footnote">WITH LOVE &amp; BLESSINGS · THE SINGH FAMILY</div>
   </motion.div>
 }
