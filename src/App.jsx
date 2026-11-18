@@ -7,17 +7,18 @@ import Countdown from './components/Countdown.jsx';
 import PhotoGallery from './components/PhotoGallery.jsx';
 import MusicPlayer from './components/MusicPlayer.jsx';
 import Ganesha from './components/Ganesha.jsx';
+import PetalField from './components/PetalField.jsx';
 
 const address = 'Ground Floor, Kasturi Padam Complex, Opposite Dmart Road, Sector 10, Airoli, Navi Mumbai, Maharashtra 400701.';
 const maps = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent('Maharaja Banquet, ' + address)}`;
 const inviteMessage = 'Together with our families, we invite you to celebrate the beginning of our forever.';
 const decorativeMessage = 'With immense joy and happiness, we invite you to join us as we celebrate a beautiful new beginning.';
-const shareMessage = 'You\'re invited to celebrate the engagement of Dr. Avinash Singh & Dr. Jagriti Singh on 12 December 2026 at 7:00 PM. We would love to celebrate this special occasion with you. Open your invitation here: ';
+const shareMessage = 'You\'re invited to celebrate the engagement of Dr. Avinash .R. Singh & Dr. Jagriti .D. Singh on 12 December 2026 at 7:00 PM. We would love to celebrate this special occasion with you. Open your invitation here: ';
 
 function Ornament({ floral = false }) { return <div className={`ornament ${floral ? 'ornament-floral' : ''}`} aria-hidden="true"><span/><i>{floral ? '❀' : '✦'}</i><span/></div>; }
 function Monogram({ wreath = false }) { return <div className={`monogram ${wreath ? 'monogram-wreath' : ''}`} role="img" aria-label="Avinash and Jagriti monogram">{wreath && <span className="wreath-left">❧</span>}<img className="aj-monogram-image" src="/images/aj-monogram.png" alt=""/>{wreath && <span className="wreath-right">❧</span>}</div>; }
 function SectionHeading({ eyebrow, children, floral = false }) { return <div className="section-heading"><span className="eyebrow">{eyebrow}</span><h2>{children}</h2><Ornament floral={floral}/></div>; }
-function Frame({ children, variant = 'double', className = '' }) { return <div className={`ornate-frame frame-${variant} ${className}`}>{children}<span className="frame-corner corner-tl">❧</span><span className="frame-corner corner-tr">❧</span><span className="frame-corner corner-bl">❧</span><span className="frame-corner corner-br">❧</span></div>; }
+function Frame({ children, variant = 'double', className = '' }) { return <div className={`ornate-frame frame-${variant} ${className}`}><PetalField className="page-petals"/>{children}<span className="frame-corner corner-tl">❧</span><span className="frame-corner corner-tr">❧</span><span className="frame-corner corner-bl">❧</span><span className="frame-corner corner-br">❧</span></div>; }
 function Reveal({ children, className = '', delay = 0, y = 22, as: Tag = motion.div, ...props }) { const reduce = useReducedMotion(); return <Tag className={className} initial={reduce ? false : { opacity: 0, y }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .16 }} transition={{ duration: reduce ? .01 : .75, delay: reduce ? 0 : delay, ease: [.22, .65, .2, 1] }} {...props}>{children}</Tag>; }
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
   const share = async () => {
     const text = shareMessage + url;
     if (navigator.share) {
-      try { await navigator.share({ title: 'Dr. Avinash & Dr. Jagriti — Engagement Invitation', text, url }); return; }
+      try { await navigator.share({ title: 'Dr. Avinash .R. Singh & Dr. Jagriti .D. Singh — Engagement Invitation', text, url }); return; }
       catch (error) { if (error?.name === 'AbortError') return; }
     }
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
@@ -49,7 +50,7 @@ function App() {
         <Frame variant="airy" className="hero-frame page-sheet"><div className="hero-inner" id="couple">
           <Reveal className="ganesha-reveal" y={10}><Ganesha className="ganesha-mark" size={120}/></Reveal>
           <Reveal className="eyebrow" y={12}>TOGETHER WITH OUR FAMILIES</Reveal><Reveal delay={.12}><Monogram wreath/></Reveal>
-          <Reveal delay={.2}><h1 className="couple-title"><span>Dr. AVINASH SINGH</span><i>&amp;</i><span>Dr. JAGRITI SINGH</span></h1></Reveal>
+          <Reveal delay={.2}><h1 className="couple-title"><span>Dr. AVINASH <b className="name-initial">.R.</b> SINGH</span><i>&amp;</i><span>Dr. JAGRITI <b className="name-initial">.D.</b> SINGH</span></h1></Reveal>
           <Reveal delay={.34}><Ornament floral/></Reveal>
           <Reveal delay={.42}><p className="hero-invite">Invite you to celebrate their<br/><strong>Engagement Ceremony</strong></p></Reveal>
           <Reveal delay={.5}><p className="hero-extra">{decorativeMessage}</p></Reveal>
@@ -59,13 +60,13 @@ function App() {
 
       <section className="invitation section-shell page-invitation" id="invitation">
         <Botanical className="side-botanical"/>
-        <Reveal className="premium-card-wrap"><article className="premium-card page-sheet">
+        <Reveal className="premium-card-wrap"><article className="premium-card page-sheet"><PetalField className="page-petals"/>
           <div className="premium-card-inner">
             <Monogram wreath/><span className="eyebrow card-family">TOGETHER WITH OUR FAMILIES</span>
             <p className="card-decorative-message">{decorativeMessage}</p>
             <Ornament floral/><span className="card-kicker">YOU ARE CORDIALLY INVITED TO THE</span>
             <h3 className="card-event">Engagement Ceremony</h3>
-            <div className="card-names"><span>Dr. AVINASH SINGH</span><i>&amp;</i><span>Dr. JAGRITI SINGH</span></div>
+            <div className="card-names"><span>Dr. AVINASH <b className="name-initial">.R.</b> SINGH</span><i>&amp;</i><span>Dr. JAGRITI <b className="name-initial">.D.</b> SINGH</span></div>
             <p className="card-message">“{inviteMessage}”</p>
             <div className="event-plaque"><div><CalendarDays size={18}/><span>THE DATE</span><strong>12 December 2026</strong></div><i/><div><Clock3 size={18}/><span>THE TIME</span><strong>7:00 PM</strong></div></div>
             <div className="card-venue"><MapPin size={17}/><div><span>THE CELEBRATION</span><strong>MAHARAJA BANQUET</strong><p>Ground Floor, Kasturi Padam Complex,<br/>Opposite Dmart Road,<br/>Sector 10, Airoli,<br/>Navi Mumbai, Maharashtra 400701.</p></div></div>
@@ -104,7 +105,7 @@ function App() {
       </section>
 
       <section className="closing section-shell page-thanks"><Botanical className="closing-flower closing-flower-left"/><Botanical className="closing-flower closing-flower-right" flip/>
-        <Frame variant="closing" className="closing-frame page-sheet"><Reveal className="closing-inner"><Heart className="closing-heart" size={20}/><p>We look forward to celebrating<br/>this beautiful occasion with you.</p><span className="eyebrow">WITH LOVE</span><h2 className="closing-names">Dr. AVINASH SINGH <i>&amp;</i> Dr. JAGRITI SINGH</h2><Ornament floral/><span className="hosted">Hosted by The Singh Family</span></Reveal>
+        <Frame variant="closing" className="closing-frame page-sheet"><Reveal className="closing-inner"><Heart className="closing-heart" size={20}/><p>We look forward to celebrating<br/>this beautiful occasion with you.</p><span className="eyebrow">WITH LOVE</span><h2 className="closing-names"><span>Dr. AVINASH <b className="name-initial">.R.</b> SINGH</span><i>&amp;</i><span>Dr. JAGRITI <b className="name-initial">.D.</b> SINGH</span></h2><Ornament floral/><span className="hosted">Hosted by The Singh Family</span></Reveal>
           <div className="share-actions"><button className="share-button" onClick={share}><Share2 size={17}/> Share Invitation</button><button className="copy-button" onClick={copy}>{copied ? <Check size={17}/> : <Copy size={17}/>} {copied ? 'Copied' : 'Copy invitation link'}</button></div>
           <footer>MADE WITH LOVE · 12 DECEMBER 2026</footer>
         </Frame>

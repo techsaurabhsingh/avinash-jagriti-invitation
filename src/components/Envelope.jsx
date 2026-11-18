@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Botanical from './Botanical.jsx';
+import PetalField from './PetalField.jsx';
 
-const petals = Array.from({ length: 13 }, (_, i) => ({ id: i, left: `${(i * 31 + 8) % 100}%`, delay: `${i * -0.77}s`, duration: `${8 + i % 5}s` }));
 const goldDust = Array.from({ length: 9 }, (_, i) => ({ id: i, x: `${(i - 4) * 17}px`, y: `${-34 - (i % 4) * 8}px`, delay: i * 0.035 }));
 
 export default function Envelope({ onOpen, onSkip, onStartMusic }) {
@@ -32,19 +32,19 @@ export default function Envelope({ onOpen, onSkip, onStartMusic }) {
 
   return <motion.div className="opening" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, scale: 1.025, filter: 'blur(5px)', pointerEvents: 'none' }} transition={{ duration: .7 }}>
     <div className="opening-grain" aria-hidden="true" />
-    <div className="petal-field" aria-hidden="true">{petals.map(p => <i key={p.id} style={{ left: p.left, animationDelay: p.delay, animationDuration: p.duration }} />)}</div>
+    <PetalField />
     <motion.div className="opening-floral opening-floral-left" initial={{ opacity: 0, x: -30, rotate: -8 }} animate={{ opacity: .72, x: 0, rotate: 0 }} transition={{ duration: 1.5, delay: .15 }}><Botanical /></motion.div>
     <motion.div className="opening-floral opening-floral-right" initial={{ opacity: 0, x: 30, rotate: 8 }} animate={{ opacity: .72, x: 0, rotate: 0 }} transition={{ duration: 1.5, delay: .35 }}><Botanical flip /></motion.div>
     <motion.div className="opening-copy" initial={{ opacity: 0, y: 16 }} animate={phase === 'idle' ? { opacity: 1, y: 0 } : { opacity: 0, y: -12 }} transition={{ duration: phase === 'idle' ? .9 : .25, delay: phase === 'idle' ? .25 : 0 }}>
       <span className="eyebrow">A SPECIAL INVITATION</span>
-      <h1>Dr. Avinash <i>&amp;</i> Dr. Jagriti</h1>
+      <h1><span>Dr. Avinash <b className="name-initial">.R.</b> Singh</span><i>&amp;</i><span>Dr. Jagriti <b className="name-initial">.D.</b> Singh</span></h1>
       <p>You're Invited</p>
     </motion.div>
     <div className={`envelope-scene phase-${phase}`}>
       <motion.button type="button" className="envelope" onClick={open} aria-label="Open invitation envelope" aria-pressed={phase !== 'idle'} initial={{ opacity: 0, y: 42, scale: .82 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ type: 'spring', stiffness: 76, damping: 17, delay: .5 }}>
         <span className="env-back" />
         <motion.span className="insert-card" animate={phase === 'emerging' ? { y: -190, rotate: -1.2, scale: 1.04, zIndex: 7 } : phase === 'opening' ? { y: -28, rotate: -.4, scale: 1.005, zIndex: 1 } : { y: 0, rotate: 0, scale: 1, zIndex: 1 }} transition={{ duration: reduced ? .1 : 1.25, ease: [.22, .7, .18, 1] }}>
-          <span className="insert-border"><span className="insert-wreath">✿ <img className="insert-logo" src="/images/aj-monogram.png" alt=""/> ✿</span><small>TOGETHER WITH OUR FAMILIES</small><b>Dr. AVINASH SINGH<br/><em>&amp;</em><br/>Dr. JAGRITI SINGH</b><span className="insert-flourish">✦ ── ✿ ── ✦</span><small>ENGAGEMENT CEREMONY</small><span className="insert-date">12 DECEMBER 2026<br/>7:00 PM</span><span className="insert-venue">MAHARAJA BANQUET</span></span>
+          <span className="insert-border"><span className="insert-wreath">✿ <img className="insert-logo" src="/images/aj-monogram.png" alt=""/> ✿</span><small>TOGETHER WITH OUR FAMILIES</small><b>Dr. AVINASH <span className="name-initial">.R.</span> SINGH<br/><em>&amp;</em><br/>Dr. JAGRITI <span className="name-initial">.D.</span> SINGH</b><span className="insert-flourish">✦ ── ✿ ── ✦</span><small>ENGAGEMENT CEREMONY</small><span className="insert-date">12 DECEMBER 2026<br/>7:00 PM</span><span className="insert-venue">MAHARAJA BANQUET</span></span>
         </motion.span>
         <motion.span className="env-rear-flap" animate={{ rotateX: phase === 'idle' || phase === 'breaking' ? 0 : 178 }} transition={{ duration: reduced ? .1 : .88, ease: [.46, 0, .18, 1] }} />
         <span className="env-pocket"><i className="env-fold env-fold-left"/><i className="env-fold env-fold-right"/><i className="env-fold env-fold-bottom"/></span>
