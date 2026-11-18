@@ -25,7 +25,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--antique); outli
 .opening-copy h1 { margin: 10px 0 0; color: var(--brown); font: 500 clamp(2.1rem, 7vw, 3.65rem)/1.12 var(--display); letter-spacing: -.035em; }
 .opening-copy h1 span { display:block; white-space:nowrap; font-size:clamp(1rem,5vw,2.1rem); letter-spacing:.005em; }
 .opening-copy h1 i { color: var(--antique); font: italic 400 .82em var(--serif); }
-.name-initial { color:var(--antique); font-style:italic; font-weight:600; letter-spacing:.015em; white-space:nowrap; }
+.name-initial { color:inherit; font-style:inherit; font-weight:inherit; letter-spacing:inherit; white-space:nowrap; }
 .opening-copy p { margin: 9px 0 0; color: #80676a; font: italic 1.1rem var(--serif); letter-spacing: .14em; }
 .opening-floral { position: absolute; z-index: 0; top: 50%; width: min(29vw, 270px); pointer-events: none; }
 .opening-floral .botanical { width: 100%; }
@@ -48,7 +48,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--antique); outli
 .insert-logo { width:43px; height:42px; object-fit:contain; mix-blend-mode:multiply; }
 .insert-border small { margin-top: 5px; color: #8b6c5e; font: 500 .37rem var(--sans); letter-spacing: .2em; }
 .insert-border b { margin: 7px 0 5px; color: var(--brown); font: 600 clamp(.8rem, 3.2vw, 1.05rem)/1.45 var(--display); letter-spacing: .08em; }
-.insert-border b em { display: block; color: var(--antique); font: italic .85rem var(--serif); line-height: 1.05; }.insert-border b .name-initial { color:var(--antique); font-style:italic; }
+.insert-border b em { display: block; color: var(--antique); font: italic .85rem var(--serif); line-height: 1.05; }
 .insert-flourish { color: var(--antique); font-size: .58rem; }
 .insert-date { margin-top: 5px; color: var(--brown); font: 600 .47rem/1.55 var(--sans); letter-spacing: .09em; }
 .insert-venue { margin-top: 5px; color: #986d6d; font: 600 .4rem var(--sans); letter-spacing: .13em; }
