@@ -8,6 +8,7 @@ import PhotoGallery from './components/PhotoGallery.jsx';
 import MusicPlayer from './components/MusicPlayer.jsx';
 import Ganesha from './components/Ganesha.jsx';
 import PetalField from './components/PetalField.jsx';
+import WeddingRings from './components/WeddingRings.jsx';
 
 const address = 'Ground Floor, Kasturi Padam Complex, Opposite Dmart Road, Sector 10, Airoli, Navi Mumbai, Maharashtra 400701.';
 const maps = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent('Maharaja Banquet, ' + address)}`;
@@ -55,7 +56,7 @@ function App() {
           <Reveal delay={.42}><p className="hero-invite">Invite you to celebrate their<br/><strong>Engagement Ceremony</strong></p></Reveal>
           <Reveal delay={.5}><p className="hero-extra">{decorativeMessage}</p></Reveal>
           <a className="scroll-cue" href="#invitation"><span>Discover the invitation</span><ArrowDown size={16}/></a>
-        </div></Frame><div className="hero-note">THE SINGH FAMILY · 2026</div>
+        </div><WeddingRings/></Frame><div className="hero-note">THE SINGH FAMILY · 2026</div>
       </section>
 
       <section className="invitation section-shell page-invitation" id="invitation">
